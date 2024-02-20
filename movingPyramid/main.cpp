@@ -1,3 +1,5 @@
+#include <chrono>
+#include <iostream>
 #include <GL/freeglut_std.h>
 #include <GL/gl.h>
 #ifdef __APPLE__
@@ -11,6 +13,7 @@
 
 int pir_x, pir_y, pir_z;
 int cam_x, cam_y, cam_z;
+
 
 void initValues() {
   pir_x = pir_y = pir_z = 0;
@@ -30,15 +33,28 @@ void changeSize(int w, int h) {
   glMatrixMode(GL_MODELVIEW);
 }
 
-void renderScene(void) {
+float updateAngle (void)
+{
+    static auto start_time= std::chrono::steady_clock::now();
+    static float angle= 0.0f;
 
-  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    auto now = std::chrono::steady_clock::now();
+    std::chrono::duration<float> elapsed_time= now- start_time;
 
-  glLoadIdentity();
-  gluLookAt(cam_x, cam_y, cam_z, 0.0f, 0.0f, -1.0f, 0.0f, 1.0f, 0.0f);
-  glTranslatef(pir_x, pir_y, pir_z);
-  glutWireTeapot(1);
-  glutSwapBuffers();
+    return elapsed_time.count()* 45.0f;
+}
+
+void renderScene(void) 
+{
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    glLoadIdentity();
+    gluLookAt(cam_x, cam_y, cam_z, 0.0f, 0.0f, -1.0f, 0.0f, 1.0f, 0.0f);
+    glTranslatef(pir_x, pir_y, pir_z);
+
+    glRotatef(updateAngle(), 0, 1.0f, 0);
+    glutWireTeapot(1);
+    glutSwapBuffers();
 }
 
 void handleKeyboard(unsigned char key, int x, int y) {

@@ -53,7 +53,7 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/Samba/Code/Uni/3ano/CG/movingPot
+CMAKE_SOURCE_DIR = /home/Samba/Code/Uni/3ano/CG/movingPyramid
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/Samba/Code/Uni/3ano/CG/build
@@ -70,18 +70,18 @@ include CMakeFiles/class1.dir/progress.make
 include CMakeFiles/class1.dir/flags.make
 
 CMakeFiles/class1.dir/main.cpp.o: CMakeFiles/class1.dir/flags.make
-CMakeFiles/class1.dir/main.cpp.o: /home/Samba/Code/Uni/3ano/CG/movingPot/main.cpp
+CMakeFiles/class1.dir/main.cpp.o: /home/Samba/Code/Uni/3ano/CG/movingPyramid/main.cpp
 CMakeFiles/class1.dir/main.cpp.o: CMakeFiles/class1.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/Samba/Code/Uni/3ano/CG/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/class1.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/class1.dir/main.cpp.o -MF CMakeFiles/class1.dir/main.cpp.o.d -o CMakeFiles/class1.dir/main.cpp.o -c /home/Samba/Code/Uni/3ano/CG/movingPot/main.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/class1.dir/main.cpp.o -MF CMakeFiles/class1.dir/main.cpp.o.d -o CMakeFiles/class1.dir/main.cpp.o -c /home/Samba/Code/Uni/3ano/CG/movingPyramid/main.cpp
 
 CMakeFiles/class1.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/class1.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Samba/Code/Uni/3ano/CG/movingPot/main.cpp > CMakeFiles/class1.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/Samba/Code/Uni/3ano/CG/movingPyramid/main.cpp > CMakeFiles/class1.dir/main.cpp.i
 
 CMakeFiles/class1.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/class1.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Samba/Code/Uni/3ano/CG/movingPot/main.cpp -o CMakeFiles/class1.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/Samba/Code/Uni/3ano/CG/movingPyramid/main.cpp -o CMakeFiles/class1.dir/main.cpp.s
 
 # Object files for target class1
 class1_OBJECTS = \
@@ -110,6 +110,6 @@ CMakeFiles/class1.dir/clean:
 .PHONY : CMakeFiles/class1.dir/clean
 
 CMakeFiles/class1.dir/depend:
-	cd /home/Samba/Code/Uni/3ano/CG/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/Samba/Code/Uni/3ano/CG/movingPot /home/Samba/Code/Uni/3ano/CG/movingPot /home/Samba/Code/Uni/3ano/CG/build /home/Samba/Code/Uni/3ano/CG/build /home/Samba/Code/Uni/3ano/CG/build/CMakeFiles/class1.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/Samba/Code/Uni/3ano/CG/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/Samba/Code/Uni/3ano/CG/movingPyramid /home/Samba/Code/Uni/3ano/CG/movingPyramid /home/Samba/Code/Uni/3ano/CG/build /home/Samba/Code/Uni/3ano/CG/build /home/Samba/Code/Uni/3ano/CG/build/CMakeFiles/class1.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/class1.dir/depend
 

@@ -279,7 +279,7 @@ class1_BINARY_DIR:STATIC=/home/Samba/Code/Uni/3ano/CG/build
 class1_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-class1_SOURCE_DIR:STATIC=/home/Samba/Code/Uni/3ano/CG/movingPot
+class1_SOURCE_DIR:STATIC=/home/Samba/Code/Uni/3ano/CG/movingPyramid
 
 //Path to a library.
 pkgcfg_lib_PC_GLUT_glut:FILEPATH=/usr/lib/libglut.so
@@ -371,7 +371,7 @@ CMAKE_GENERATOR_PLATFORM:INTERNAL=
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
 //Source directory with the top level CMakeLists.txt file for this
 // project
-CMAKE_HOME_DIRECTORY:INTERNAL=/home/Samba/Code/Uni/3ano/CG/movingPot
+CMAKE_HOME_DIRECTORY:INTERNAL=/home/Samba/Code/Uni/3ano/CG/movingPyramid
 //Install .so files without execute permission.
 CMAKE_INSTALL_SO_NO_EXE:INTERNAL=0
 //ADVANCED property for variable: CMAKE_LINKER

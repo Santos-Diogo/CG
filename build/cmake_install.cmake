@@ -1,4 +1,4 @@
-# Install script for directory: /home/Samba/Code/Uni/3ano/CG/movingPot
+# Install script for directory: /home/Samba/Code/Uni/3ano/CG/movingPyramid
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
