@@ -39,17 +39,23 @@ void changeSize(int w, int h)
   glMatrixMode(GL_MODELVIEW);
 }
 
-void cutAngle(float* angle)
+void truncAngle(float* angle)
 {
-    float aux= *angle;
-
-    int i= 0;
-    while (aux> 360.0f)
-    {
-        aux-= 360.0f;
-        i++;
+    if (*angle< 0)
+    { 
+        while (aux< 0)
+        {
+            aux+= 360.0f;
+        }
+        
     }
-    *angle-= 360.0f* i;
+    else 
+    {
+        while (*angle> 360.0f)
+        {
+            *angle-= 360.0f;
+        }
+    }
 }
 
 float updateAngle ()
@@ -62,7 +68,7 @@ float updateAngle ()
     last_frame_time= std::chrono::steady_clock::now();
 
     angle+= elapsed_time.count()* cam_step;
-    cutAngle(&angle);
+    truncAngle(&angle);
 
     return angle;
 }

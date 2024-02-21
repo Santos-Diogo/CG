@@ -1,5 +1,5 @@
 CMakeFiles/class1.dir/main.cpp.o: \
- /home/Samba/Code/Uni/3ano/CG/movingPyramid/main.cpp \
+ /home/Samba/Code/Uni/3ano/CG/movingPot/main.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/13.2.1/chrono \
  /usr/include/c++/13.2.1/bits/requires_hosted.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++config.h \

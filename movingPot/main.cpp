@@ -1,3 +1,5 @@
+#include <chrono>
+#include <iostream>
 #include <GL/freeglut_std.h>
 #include <GL/gl.h>
 #ifdef __APPLE__
@@ -9,16 +11,23 @@
 #define _USE_MATH_DEFINES
 #include <stdio.h>
 
+
+#define ANGLE_STEP 10
+
 int pir_x, pir_y, pir_z;
 int cam_x, cam_y, cam_z;
+float cam_step;
 
-void initValues() {
-  pir_x = pir_y = pir_z = 0;
-  cam_x = 0;
-  cam_y = cam_z = 5;
+void initValues() 
+{
+    pir_x = pir_y = pir_z = 0;
+    cam_x = 0;
+    cam_y = cam_z = 5;
+    cam_step= 0.0f;
 }
 
-void changeSize(int w, int h) {
+void changeSize(int w, int h) 
+{
   if (h == 0)
     h = 1;
 
@@ -30,52 +39,104 @@ void changeSize(int w, int h) {
   glMatrixMode(GL_MODELVIEW);
 }
 
-void renderScene(void) {
+void cutAngle(float* angle)
+{
+    float aux= *angle;
 
-  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-  glLoadIdentity();
-  gluLookAt(cam_x, cam_y, cam_z, 0.0f, 0.0f, -1.0f, 0.0f, 1.0f, 0.0f);
-  glTranslatef(pir_x, pir_y, pir_z);
-  glutWireTeapot(1);
-  glutSwapBuffers();
+    int i= 0;
+    while (aux> 360.0f)
+    {
+        aux-= 360.0f;
+        i++;
+    }
+    *angle-= 360.0f* i;
 }
 
-void handleKeyboard(unsigned char key, int x, int y) {
-  switch (key) {
-  case 'w': {
-    pir_z--;
-    break;
-  }
-  case 's': {
-    pir_z++;
-    break;
-  }
-  case 'a': {
-    pir_x--;
-    break;
-  }
-  case 'd': {
-    pir_x++;
-    break;
-  }
-  case 'j': {
-    cam_y++;
-    break;
-  }
-  case 'k': {
-    cam_y--;
-    break;
-  }
-  case 'h': {
-    cam_x--;
-    break;
-  }
-  case 'l': {
-    cam_x++;
-    break;
-  }
-  }
+float updateAngle ()
+{
+    static auto last_frame_time= std::chrono::steady_clock::now();
+    static float angle= 0.0f;
+
+    auto now = std::chrono::steady_clock::now();
+    std::chrono::duration<float> elapsed_time= now- last_frame_time;
+    last_frame_time= std::chrono::steady_clock::now();
+
+    angle+= elapsed_time.count()* cam_step;
+    cutAngle(&angle);
+
+    return angle;
+}
+
+void renderScene(void) 
+{
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    glLoadIdentity();
+    gluLookAt(cam_x, cam_y, cam_z, 0.0f, 0.0f, -1.0f, 0.0f, 1.0f, 0.0f);
+    glTranslatef(pir_x, pir_y, pir_z);
+
+    glRotatef(updateAngle(), 0, 1.0f, 0);
+    glutWireTeapot(1);
+    glutSwapBuffers();
+}
+
+void handleKeyboard(unsigned char key, int x, int y) 
+{
+    switch (key) 
+    {
+        case 'w': 
+        {
+            pir_z--;
+            break;
+        } 
+        case 's': 
+        {
+            pir_z++;
+            break;
+        }
+        case 'a': 
+        {
+            pir_x--;
+            break;
+        }
+        case 'd': 
+        {
+            pir_x++;
+            break;
+        }
+        case 'j': 
+        {
+            cam_y++;
+            break;
+        }
+        case 'k': 
+        {
+            cam_y--;
+            break;
+        }
+        case 'h': 
+        {
+            cam_x--;
+            break;
+        }
+        case 'l': 
+        {
+            cam_x++;
+            break;
+        }
+        case '+':
+        {
+            if (cam_step< 1080)
+                cam_step+= ANGLE_STEP; 
+            break; 
+        } 
+        case '-': 
+        { 
+            if (cam_step> -1080) 
+                cam_step-= ANGLE_STEP;
+            break; 
+        } 
+    } 
 }
 
 void printInfo() {
