@@ -1,4 +1,4 @@
-# Install script for directory: /home/Samba/Code/Uni/3ano/CG/aula4
+# Install script for directory: /home/Samba/Code/Uni/3ano/CG_TP
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

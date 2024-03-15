@@ -57,7 +57,7 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/Samba/Code/Uni/3ano/CG/aula4
+CMAKE_SOURCE_DIR = /home/Samba/Code/Uni/3ano/CG_TP
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/Samba/Code/Uni/3ano/CG/build
@@ -117,41 +117,276 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named class4
+# Target rules for targets named engine
 
 # Build rule for target.
-class4: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 class4
-.PHONY : class4
+engine: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 engine
+.PHONY : engine
 
 # fast build rule for target.
-class4/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/class4.dir/build.make CMakeFiles/class4.dir/build
-.PHONY : class4/fast
+engine/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/build
+.PHONY : engine/fast
 
-main.o: main.cpp.o
-.PHONY : main.o
+#=============================================================================
+# Target rules for targets named generator
+
+# Build rule for target.
+generator: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 generator
+.PHONY : generator
+
+# fast build rule for target.
+generator/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/build
+.PHONY : generator/fast
+
+src/engine/engine_main.o: src/engine/engine_main.cpp.o
+.PHONY : src/engine/engine_main.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/class4.dir/build.make CMakeFiles/class4.dir/main.cpp.o
-.PHONY : main.cpp.o
+src/engine/engine_main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/engine/engine_main.cpp.o
+.PHONY : src/engine/engine_main.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+src/engine/engine_main.i: src/engine/engine_main.cpp.i
+.PHONY : src/engine/engine_main.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/class4.dir/build.make CMakeFiles/class4.dir/main.cpp.i
-.PHONY : main.cpp.i
+src/engine/engine_main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/engine/engine_main.cpp.i
+.PHONY : src/engine/engine_main.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+src/engine/engine_main.s: src/engine/engine_main.cpp.s
+.PHONY : src/engine/engine_main.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/class4.dir/build.make CMakeFiles/class4.dir/main.cpp.s
-.PHONY : main.cpp.s
+src/engine/engine_main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/engine/engine_main.cpp.s
+.PHONY : src/engine/engine_main.cpp.s
+
+src/engine/parser.o: src/engine/parser.cpp.o
+.PHONY : src/engine/parser.o
+
+# target to build an object file
+src/engine/parser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/engine/parser.cpp.o
+.PHONY : src/engine/parser.cpp.o
+
+src/engine/parser.i: src/engine/parser.cpp.i
+.PHONY : src/engine/parser.i
+
+# target to preprocess a source file
+src/engine/parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/engine/parser.cpp.i
+.PHONY : src/engine/parser.cpp.i
+
+src/engine/parser.s: src/engine/parser.cpp.s
+.PHONY : src/engine/parser.s
+
+# target to generate assembly for a file
+src/engine/parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/engine/parser.cpp.s
+.PHONY : src/engine/parser.cpp.s
+
+src/generator/box.o: src/generator/box.cpp.o
+.PHONY : src/generator/box.o
+
+# target to build an object file
+src/generator/box.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/generator/box.cpp.o
+.PHONY : src/generator/box.cpp.o
+
+src/generator/box.i: src/generator/box.cpp.i
+.PHONY : src/generator/box.i
+
+# target to preprocess a source file
+src/generator/box.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/generator/box.cpp.i
+.PHONY : src/generator/box.cpp.i
+
+src/generator/box.s: src/generator/box.cpp.s
+.PHONY : src/generator/box.s
+
+# target to generate assembly for a file
+src/generator/box.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/generator/box.cpp.s
+.PHONY : src/generator/box.cpp.s
+
+src/generator/cone.o: src/generator/cone.cpp.o
+.PHONY : src/generator/cone.o
+
+# target to build an object file
+src/generator/cone.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/generator/cone.cpp.o
+.PHONY : src/generator/cone.cpp.o
+
+src/generator/cone.i: src/generator/cone.cpp.i
+.PHONY : src/generator/cone.i
+
+# target to preprocess a source file
+src/generator/cone.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/generator/cone.cpp.i
+.PHONY : src/generator/cone.cpp.i
+
+src/generator/cone.s: src/generator/cone.cpp.s
+.PHONY : src/generator/cone.s
+
+# target to generate assembly for a file
+src/generator/cone.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/generator/cone.cpp.s
+.PHONY : src/generator/cone.cpp.s
+
+src/generator/cylinder.o: src/generator/cylinder.cpp.o
+.PHONY : src/generator/cylinder.o
+
+# target to build an object file
+src/generator/cylinder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/generator/cylinder.cpp.o
+.PHONY : src/generator/cylinder.cpp.o
+
+src/generator/cylinder.i: src/generator/cylinder.cpp.i
+.PHONY : src/generator/cylinder.i
+
+# target to preprocess a source file
+src/generator/cylinder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/generator/cylinder.cpp.i
+.PHONY : src/generator/cylinder.cpp.i
+
+src/generator/cylinder.s: src/generator/cylinder.cpp.s
+.PHONY : src/generator/cylinder.s
+
+# target to generate assembly for a file
+src/generator/cylinder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/generator/cylinder.cpp.s
+.PHONY : src/generator/cylinder.cpp.s
+
+src/generator/generator_main.o: src/generator/generator_main.cpp.o
+.PHONY : src/generator/generator_main.o
+
+# target to build an object file
+src/generator/generator_main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/generator/generator_main.cpp.o
+.PHONY : src/generator/generator_main.cpp.o
+
+src/generator/generator_main.i: src/generator/generator_main.cpp.i
+.PHONY : src/generator/generator_main.i
+
+# target to preprocess a source file
+src/generator/generator_main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/generator/generator_main.cpp.i
+.PHONY : src/generator/generator_main.cpp.i
+
+src/generator/generator_main.s: src/generator/generator_main.cpp.s
+.PHONY : src/generator/generator_main.s
+
+# target to generate assembly for a file
+src/generator/generator_main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/generator/generator_main.cpp.s
+.PHONY : src/generator/generator_main.cpp.s
+
+src/generator/plane.o: src/generator/plane.cpp.o
+.PHONY : src/generator/plane.o
+
+# target to build an object file
+src/generator/plane.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/generator/plane.cpp.o
+.PHONY : src/generator/plane.cpp.o
+
+src/generator/plane.i: src/generator/plane.cpp.i
+.PHONY : src/generator/plane.i
+
+# target to preprocess a source file
+src/generator/plane.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/generator/plane.cpp.i
+.PHONY : src/generator/plane.cpp.i
+
+src/generator/plane.s: src/generator/plane.cpp.s
+.PHONY : src/generator/plane.s
+
+# target to generate assembly for a file
+src/generator/plane.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/generator/plane.cpp.s
+.PHONY : src/generator/plane.cpp.s
+
+src/generator/sphere.o: src/generator/sphere.cpp.o
+.PHONY : src/generator/sphere.o
+
+# target to build an object file
+src/generator/sphere.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/generator/sphere.cpp.o
+.PHONY : src/generator/sphere.cpp.o
+
+src/generator/sphere.i: src/generator/sphere.cpp.i
+.PHONY : src/generator/sphere.i
+
+# target to preprocess a source file
+src/generator/sphere.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/generator/sphere.cpp.i
+.PHONY : src/generator/sphere.cpp.i
+
+src/generator/sphere.s: src/generator/sphere.cpp.s
+.PHONY : src/generator/sphere.s
+
+# target to generate assembly for a file
+src/generator/sphere.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/generator/sphere.cpp.s
+.PHONY : src/generator/sphere.cpp.s
+
+src/shared/point.o: src/shared/point.cpp.o
+.PHONY : src/shared/point.o
+
+# target to build an object file
+src/shared/point.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/shared/point.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/shared/point.cpp.o
+.PHONY : src/shared/point.cpp.o
+
+src/shared/point.i: src/shared/point.cpp.i
+.PHONY : src/shared/point.i
+
+# target to preprocess a source file
+src/shared/point.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/shared/point.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/shared/point.cpp.i
+.PHONY : src/shared/point.cpp.i
+
+src/shared/point.s: src/shared/point.cpp.s
+.PHONY : src/shared/point.s
+
+# target to generate assembly for a file
+src/shared/point.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/shared/point.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/shared/point.cpp.s
+.PHONY : src/shared/point.cpp.s
+
+src/shared/tinyxml2.o: src/shared/tinyxml2.cpp.o
+.PHONY : src/shared/tinyxml2.o
+
+# target to build an object file
+src/shared/tinyxml2.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/shared/tinyxml2.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/shared/tinyxml2.cpp.o
+.PHONY : src/shared/tinyxml2.cpp.o
+
+src/shared/tinyxml2.i: src/shared/tinyxml2.cpp.i
+.PHONY : src/shared/tinyxml2.i
+
+# target to preprocess a source file
+src/shared/tinyxml2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/shared/tinyxml2.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/shared/tinyxml2.cpp.i
+.PHONY : src/shared/tinyxml2.cpp.i
+
+src/shared/tinyxml2.s: src/shared/tinyxml2.cpp.s
+.PHONY : src/shared/tinyxml2.s
+
+# target to generate assembly for a file
+src/shared/tinyxml2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/shared/tinyxml2.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/generator.dir/build.make CMakeFiles/generator.dir/src/shared/tinyxml2.cpp.s
+.PHONY : src/shared/tinyxml2.cpp.s
 
 # Help Target
 help:
@@ -161,10 +396,38 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... class4"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... engine"
+	@echo "... generator"
+	@echo "... src/engine/engine_main.o"
+	@echo "... src/engine/engine_main.i"
+	@echo "... src/engine/engine_main.s"
+	@echo "... src/engine/parser.o"
+	@echo "... src/engine/parser.i"
+	@echo "... src/engine/parser.s"
+	@echo "... src/generator/box.o"
+	@echo "... src/generator/box.i"
+	@echo "... src/generator/box.s"
+	@echo "... src/generator/cone.o"
+	@echo "... src/generator/cone.i"
+	@echo "... src/generator/cone.s"
+	@echo "... src/generator/cylinder.o"
+	@echo "... src/generator/cylinder.i"
+	@echo "... src/generator/cylinder.s"
+	@echo "... src/generator/generator_main.o"
+	@echo "... src/generator/generator_main.i"
+	@echo "... src/generator/generator_main.s"
+	@echo "... src/generator/plane.o"
+	@echo "... src/generator/plane.i"
+	@echo "... src/generator/plane.s"
+	@echo "... src/generator/sphere.o"
+	@echo "... src/generator/sphere.i"
+	@echo "... src/generator/sphere.s"
+	@echo "... src/shared/point.o"
+	@echo "... src/shared/point.i"
+	@echo "... src/shared/point.s"
+	@echo "... src/shared/tinyxml2.o"
+	@echo "... src/shared/tinyxml2.i"
+	@echo "... src/shared/tinyxml2.s"
 .PHONY : help
 
 
