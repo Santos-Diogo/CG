@@ -1,5 +1,6 @@
 
 
+#include <cstdlib>
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -48,17 +49,40 @@ void changeSize(int w, int h) {
   glMatrixMode(GL_MODELVIEW);
 }
 
-void drawStrip(int side_lenght) {}
+float *getPoints(int index_strip) {
+  float *points = (float *)malloc(sizeof(float) * 3 * side_lenght);
+
+  int offset_x = side_lenght / 2;
+  int index_offset = index_strip * side_lenght;
+  for (int i = 0; i < side_lenght * 3;) {
+    points[i++] = i - offset_x;
+    points[i++] = imageData[index_offset + i];
+    points[i++] = (float)index_strip;
+  }
+  return points;
+}
 
 void drawTerrain() {
   int first;
   int count = side_lenght;
+  GLuint buffer[side_lenght - 1];
 
-  for (int i = 0; i < side_lenght; i++) {
-    drawStrip(side_lenght);
-    glTranslatef(i, 0, 0);
-  }
+  glGenBuffers(side_lenght - 1, buffer);
+
   // colocar aqui o código de desnho do terreno usando VBOs com TRIANGLE_STRIPS
+  float *top_points;
+  float *bot_points = (float *)malloc(sizeof(float) * 3 * side_lenght);
+
+  // create top point
+  top_points = getPoints(0);
+  for (int i = 1; i < side_lenght; i++) {
+    free(top_points);
+    top_points = bot_points;
+    bot_points = getPoints(i);
+  }
+
+  free(top_points);
+  free(bot_points);
 }
 
 void renderScene(void) {
@@ -168,7 +192,7 @@ void init() {
   tw = ilGetInteger(IL_IMAGE_WIDTH);
   th = ilGetInteger(IL_IMAGE_HEIGHT);
 
-  if (tw == th) {
+  if (tw != th) {
     std::cerr << "error loading the image";
     exit(1);
   }
