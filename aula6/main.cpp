@@ -48,11 +48,15 @@ void changeSize(int w, int h) {
   glMatrixMode(GL_MODELVIEW);
 }
 
+void drawStrip(int side_lenght) {}
+
 void drawTerrain() {
   int first;
   int count = side_lenght;
 
-  for (int i = 1; i < side_lenght; i++) {
+  for (int i = 0; i < side_lenght; i++) {
+    drawStrip(side_lenght);
+    glTranslatef(i, 0, 0);
   }
   // colocar aqui o código de desnho do terreno usando VBOs com TRIANGLE_STRIPS
 }
