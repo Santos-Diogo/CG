@@ -144,6 +144,7 @@ void drawAttackers(int attackers) {
 void drawTerrain() {
 
   // colocar aqui o código de desnho do terreno usando VBOs com TRIANGLE_STRIPS
+  glColor3f(1, 1, 1);
   glBindBuffer(GL_ARRAY_BUFFER, vertices[0]);
   glVertexPointer(3, GL_FLOAT, 0, 0);
   for (int i = 0; i < altura - 1; i++) {
@@ -161,25 +162,17 @@ void renderScene(void) {
   glLoadIdentity();
   gluLookAt(camX, camY, camZ, 0.0, 0.0, 0.0, 0.0f, 1.0f, 0.0f);
 
-  glColor3f(0.2f, 0.8f, 0.2f);
-  glBegin(GL_TRIANGLES);
-  glVertex3f(100.0f, 0, -100.0f);
-  glVertex3f(-100.0f, 0, -100.0f);
-  glVertex3f(-100.0f, 0, 100.0f);
-
-  glVertex3f(100.0f, 0, -100.0f);
-  glVertex3f(-100.0f, 0, 100.0f);
-  glVertex3f(100.0f, 0, 100.0f);
-  glEnd();
-
   // put code to draw scene in here
-  drawTerrain();
-
   drawAxis();
-  drawTrees(1000);
-  drawTorus();
-  drawCowboys(8);
-  drawAttackers(16);
+  drawTrees(100);
+  //  drawTorus();
+  //  drawCowboys(8);
+  //  drawAttackers(16);
+
+  // glPushMatrix();
+  // glTranslatef(-largura / 2, 0, -altura / 2);
+  // drawTerrain();
+  // glPopMatrix();
 
   glutSwapBuffers();
 }
