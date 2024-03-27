@@ -26,6 +26,8 @@ GLuint vertices[2];
 int seed = 29112003;
 int r_clareira = 35;
 
+unsigned char *imageData;
+
 void changeSize(int w, int h) {
 
   // Prevent a divide by zero, when window is too short
@@ -78,15 +80,37 @@ void drawTree() {
   glPopMatrix();
 }
 
+float h(int i, int j) {
+
+  float scale = (50 / float(255)) * 2;
+  return (imageData[i * largura + j] * scale);
+}
+
+float hf(float px, float pz) {
+  int x1 = floor(px);
+  int z1 = floor(pz);
+  int x2 = x1 + 1;
+  int z2 = z1 + 1;
+
+  float fz = pz - z1;
+  float fx = px - x1;
+
+  float h_x1_z = h(x1, z1) * (1 - fz) * h(x1, z2) * fz;
+  float h_x2_z = h(x2, z1) * (1 - fz) * h(x2, z2) * fz;
+
+  return h_x1_z * (1 - fx) + h_x2_z * fx;
+}
+
 void drawTrees(int num_trees) {
   srand(seed);
   int i = 0;
   while (i < num_trees) {
-    int rand_x = rand() % 200 - 100;
-    int rand_z = rand() % 200 - 100;
-    if (rand_x * rand_x + rand_z * rand_z > r_clareira * r_clareira) {
+    int rand_x = rand() % 255;
+    int rand_z = rand() % 255;
+    if (pow((rand_x - 127.5), 2) + pow((rand_z - 127.5), 2) >
+        r_clareira * r_clareira) {
       glPushMatrix();
-      glTranslatef(rand_x, 0, rand_z);
+      glTranslatef(rand_x, hf(rand_x, rand_z), rand_z);
       drawTree();
       glPopMatrix();
       i++;
@@ -164,15 +188,15 @@ void renderScene(void) {
 
   // put code to draw scene in here
   drawAxis();
+  glPushMatrix();
+  glTranslatef(-largura / 2, 0, -altura / 2);
+  drawTerrain();
   drawTrees(100);
+  glPopMatrix();
+
   //  drawTorus();
   //  drawCowboys(8);
   //  drawAttackers(16);
-
-  // glPushMatrix();
-  // glTranslatef(-largura / 2, 0, -altura / 2);
-  // drawTerrain();
-  // glPopMatrix();
 
   glutSwapBuffers();
 }
@@ -253,7 +277,6 @@ void init() {
 
   // 	Load the height map "terreno.jpg"
   unsigned int t, tw, th;
-  unsigned char *imageData;
   ilInit();
   ilGenImages(1, &t);
   ilBindImage(t);
@@ -280,11 +303,11 @@ void init() {
   for (int y = 0; y < th; y++) {
     for (int x = 0; x < tw; x++) {
       v.push_back(y + 1);
-      v.push_back(h(y + 1, x, imageData));
+      v.push_back(h(y + 1, x));
       v.push_back(x);
 
       v.push_back(y);
-      v.push_back(h(y, x, imageData));
+      v.push_back(h(y, x));
       v.push_back(x);
     }
   }
